@@ -1,0 +1,347 @@
+Pre Security
+	Intro to CyberSec
+		Intro to Offensive Security
+			- Task 1 | What is Offensive Security
+				• The best defensive is a good offense!
+			- Task 2 | Hacking your first machine
+				• First step is trying to find hidden subdomains, they recommend GoBuster, a tool similar to sublist3r
+					○ The command is 'gobuster -u <url> -w <wordlist> dir' this will use the wordlist to try and find unlisted pages.
+				• Easily enough, there's a bank transfer page that just allows any transfers. Transferred $2k USD and solved the page.
+			- Task 3 | Careers in cybersec
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Intro to Defensive Security
+			- Task 1 | ^
+				• User training, documentation, tools (firewall, IPS/IDS, logging)
+			- Task 2 | Areas of Defensive Security
+				• SOC
+					○ Detecting and patching vulns
+					○ Configuring policies and detecting violations
+					○ Detecting + Responding to unauthorized activity
+					○ Detecting + Responding to network intrusions
+					○ Threat Intelligence - Know your enemy
+				• DFIR
+					○ Digital Forensics
+						+ Analyzing logs post-attack
+						+ Using tools like SleuthKit or FTK to analyze file systems and memory.
+					○ Incident Response
+						+ There's four phases of an incident response team, they're self-explanatory.
+							1. Preparation
+							2. Detection + Analysis
+							3. Containment, Eradication + Recovery
+							4. Post-Incident
+					○ Malware Analysis
+						+ Virus, Trojan, Ransomware, etc
+						+ Static Analysis
+						+ Dynamic Analysis (joe sandbox, VM, etc)
+			- Task 3 | Practical Example of Defensive Security
+				1. Suspicious SSH from unfamiliar IP, checked IP and found it is from a malicious source.
+				2. Escalated incident to SOC team lead.
+				3. Added a rule to the firewall to block that IP.
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Careers in Cybersec
+			- Task 1 | Intro
+			- Task 2 | Security Analyst
+				• Analyze the network, document security issues and remediations, develop security plans
+			- Task 3 | Security Engineer
+				• Handles the testing and implementation of security systems and patches
+			- Task 4 | Incident Responder
+				• Quickly detects, acknowledges and recovers from attacks, minimizing downtime and damages. Pre and post incident plan and documentation
+			- Task 5 | Digital Forensics Examiner
+				• Collecting and analyzing evidence
+			- Task 6 | Malware Analyst
+				• Analyze, reverse-engineer and document malware
+			- Task 8 | Pentester
+				• Audit networks, systems and servers for vulnerabilities
+			- Task 9 | Red Teamer
+				• Essentially covert pentesting.
+				
+	====================================================================================================================================
+	
+	Network Fundamentals
+		What is Networking?
+			- Task 1 | Intro
+			- Task 2 | What is the internet?
+			- Task 3 | Identifying Devices on a Network
+				• Generally basic knowledge with a hint of MAC address spoofing thrown in
+			- Task 4 | Ping (ICMP)
+				•
+			- Task 5 | Continue Your Learning: Intro to LAN
+				• Basic stuff, had me ping 8.8.8.8 (Google DNS if I remember right) with the '-c 4' flag to send only 4 pings.
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Introduction to LAN
+			- Task 1 | Intro LAN Topologies
+				• Star Topology
+					+ Scalable, reliable
+					- Single point of failure, more expensive, hard to troubleshoot
+				• Bus Topology
+					+ Cost efficient, easy setup
+					- Bottleneck, lack of redundancy, single point of failure
+				• Ring Topology
+					+ Easy to troubleshoot, inexpensive,
+					- Inefficient
+				• Switch + Router definitions
+			- Task 2 | A Primer on Subnetting
+			- Task 3 | ARP Protocol
+			- Task 4 | DHCP Protocol
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		What is the OSI Model?
+			- Task 1 | OSI Model
+			- Task 2 | Layer 7 Application
+				• HTTP, FTP, SMTP, DNS, etc
+			- Task 3 | Layer 6 Presentation
+				• Standardization and translation of data
+			- Task 4 | Layer 5 Session
+				• Establish connection + division and concatenation of data into packets
+			- Task 5 | Layer 4 Transport
+				• TCP
+					+ Accurate, reliable
+					- Requires reliable connection, slower than UDP
+				• UDP
+					+ f a s t
+					- unreliable
+			- Task 6 | Layer 3 Network
+				• Routing + Reassembly
+			- Task 7 | Layer 2 Data Link
+				• From layer 3 to 2 using MAC Addresses
+			- Task 8 | Layer 1 Physical
+				• Fairly self explanatory
+			- Task 9 | OSI Game
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Packets and Frames
+			- Task 1 | What are Packets and Frames?
+			- Task 2 | TCP/IP
+				• Headers:
+					a. Source Port
+					b. Dest Port
+					c. Source IP
+					d. Dest IP
+					e. Sequence Num
+					f. Ack Num (SeqNum++)
+					g. Checksum (similar to hash)
+					h. Data
+					i. Flag
+			- Task 3 | Practical - Handshake
+				• Order:
+					1. SYN
+					2. SYN/ACK
+					3. ACK
+					4. DATA
+					5. ACK
+					6. FIN/ACK
+					7. FIN/ACK
+					8. ACK
+			- Task 4 | UDP/IP
+				• Headers:
+					a. Time to Live
+					b. Source Address
+					c. Destination Address
+					d. Source Port
+					e. Destination Port
+					f. Data
+			- Task 5 | Ports 101
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Extending Your Network
+			- Task 1 | Intro to Port Forwarding
+			- Task 2 | Firewalls 101
+				• Stateful
+					○ Looks at all aspects of the connection, resource intensive & dynamic.
+				• Stateless
+					○ Strict to the rules, analyzes individual packets, resource efficient.
+			- Task 3 | Practical - Firewall
+			- Task 4 | VPN Basics
+			- Task 5 | LAN Networking Devices
+			- Task 6 | Practical - Network Simulator
+				
+	====================================================================================================================================
+	
+	How the Web Works
+		DNS in Detail
+			- Task 1 | What is DNS?
+			- Task 2 | Domain Heirarchy
+				• TLD - .com, .net, etc
+					○ gTLD (com, net, org), ccTLD (.ca, .co.uk, .tv, .ru)
+				• Second-Level Domain - Colloquially known as the domain name (minus the TLD)
+				• Subdomain - The part of the domain to the left of the SLD
+			- Task 3 | Record Types
+				• A - IPv4 addresses
+				• AAAA - IPv6 addresses
+				• CNAME - nested domain name essentially
+				• MX - Email records for domains
+				• TXT - Free text field (email server verification, domain ownership, etc)
+			- Task 4 | Making a Request
+				1. Local
+				2. Rescursive DNS Server
+				3. Root Server
+				4. TLD Server
+				5. Authoritative DNS Server
+			- Task 5 | Practical
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		HTTP in detail
+			- Task 1 | What is HTTP(S)?
+			- Task 2 | Requests and Responses
+				• http	://		user:passwd@	tryhackme.com	:80		/view-room	?id=1			#task3
+				• Scheme		User		Host/domain		Port	Path		Query String	Fragment
+			- Task 3 | HTTP Methods
+				• Request Types:
+					○ GET
+						- Used to get information from a sever
+					○ POST
+						- Submitting data and creating new records
+					○ PUT
+						- Submitting updated data
+					○ DELETE
+						- Deleting information/records
+			- Task 4 | HTTP Status Codes
+			- Task 5 | Headers
+				• Common Request Headers
+					a. Host
+					b. User-Agent
+					c. Content-Length
+					d. Accept-Encoding
+					e. Cookie
+				• Common Response Headers
+					a. Set-cookie
+					b. Cache-control
+					c. Content-type
+					d. Content-encoding
+			- Task 6 | Cookies
+			- Task 7 | Making Requests
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		How Websites Work
+			- Task 1 - Intro
+			- Task 2 - HTML
+				• Pretty basic HTML code
+			- Task 3 - JS
+				• Basic JS code inline with the HTML code to change some text, and change an HTML button to say Button Clicked onclick.
+			- Task 4 - Sensitive Data Exposure
+				• usr/passwd exposed in plaintext when using inspect element
+			- Task 5 - HTML Injection
+				• I used the string '<li><a href="http://hacker(dot)com">Link</a></li>' with the proper root domain.
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Putting It All Together
+			- Task 1 - Intro
+			- Task 2 - Other Components
+				• Load Balancers
+					○ Balances traffic between multiple servers to distribute load
+				• CDN
+					○ Distributes static files to other servers (globally/nationally/etc) to quicken response time of retrieving these files
+				• Databases
+					○ Either locally hosted or separate servers that store information that webservers can pull from
+				• WAF
+					○ Basically a tailor made firewall for a webserver, handles rate limiting and bot-filtering among other things.
+			- Task 3 - How Web Servers Work
+				• Virtual Hosts - Used to host multiple websites with different domain names, differentiates by hostname in HTTP header.
+				
+	====================================================================================================================================
+	
+	Linux Fundamentals
+		Part 1
+			- Task 1 - Intro
+			- Task 2 - Background
+			- Task 3 - Interacting
+			- Task 4 - First commands
+			- Task 5 - Filesystem
+			- Task 6 - Searching for Files
+			- Task 7 - Shell Operators
+			- Task 8 - Conclusions
+				• These last 8 tasks were fairly simple, didn't take any documentation because of how basic it was.
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+		
+		Part 2 - Note AttackBox VERY slow
+			- Task 1 - Intro
+			- Task 2 - SSH
+			- Task 3 - Flags & Switches
+			- Task 4 - Filesystem Interaction
+			- Task 5 - Permissions 101
+			- Task 6 - Common Directories
+			- Task 7 - Conclusions
+				• Again, the concepts here were fairly basic and didn't require any documentation, the box was so unbelievably slow too.
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+	
+		Part 3
+			- Task 1 - Intro
+			- Task 2 - Deploy
+			- Task 3 - Terminal Text Editors
+				• ugh, VIM :(
+			- Task 4 - General/Useful Utilities
+				•Retrieve flag.txt (hidden, so .flag.txt)
+					1. SSH to target machine
+					2. Start Python's http.server with "python3 -m http.server"
+					3. On attackbox use wget to retrieve file "wget http://<ip>:<port>/.flag.txt
+			- Task 5 - Processes 101
+				• SIGTERM - Kill w/ cleanup
+				• SIGKILL - Kill
+				• SIGSTOP - Stop/suspend
+				• Ctrl+Z to bg
+				• fg to fg
+			- Task 6 - Automation
+			- Task 7 - Package Management
+			- Task 8 - Logs
+			- Task 9 - Conclusion
+				
+	====================================================================================================================================
+	
+	Windows Fundamentals
+		Part 1
+			- Task 1 - Intro
+			- Task 2 - Windows Editions
+			- Task 3 - GUI
+			- Task 4 - File System
+				• Worth noting about ADS
+			- Task 5 - Sys32
+				• *ENVIRONMENT VARIABLES*, I know many off the top of my head but I always forget what they're called
+			- Task 6 - User Accts & Perms
+			- Task 7 - UAC
+			- Task 8 - Settings & Control Panel
+			- Task 9 - Task Manager
+			- Task 10 - Conclusion
+				• Not much to add here, it's the OS most of us have been using for years.
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+	
+		Part 2
+			- Task 1 - Intro
+			- Task 2 - System Config
+			- Task 3 - Change UAC
+			- Task 4 - Computer Management
+			- Task 5 - Sys Info
+			- Task 6 - Resource Monitor
+			- Task 7 - Command Prompt
+			- Task 8 - Registry Editor
+			- Task 9 - Conclusion
+				• Still not enough new information to make it worthy of listing
+				
+		--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+	
+		Part 3
+			- Task 1 - Intro
+			- Task 2 - Windows Updates
+			- Task 3 - Windows Security
+			- Task 4 - Virus & Threat Protection
+			- Task 5 - Firewall & Network Protection
+			- Task 6 - App & Browser Control
+			- Task 7 - Device Security
+			- Task 8 - Bitlocker
+			- Task 9 - Volume Shadow Copy Service
+			- Task 10 - Conclusion
+				• Funnily enough part 3 is simpler in concept than part 2 in my opinion
